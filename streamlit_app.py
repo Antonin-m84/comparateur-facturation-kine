@@ -90,7 +90,7 @@ st.markdown("""
 # =============================================================================
 
 def parse_billing_code(code_str):
-    """Parse les codes de facturation (ex: 'K-1 + M12 K3/4' -> ['K-1', 'K3/4'])"""
+    """Parse les codes de facturation (ex: 'K-1 + RECOND' -> ['K-1', 'RECOND'])"""
     codes = []
     code_str = code_str.strip().upper()
     
@@ -100,6 +100,8 @@ def parse_billing_code(code_str):
         codes.append('M 6')
     if 'K-1' in code_str:
         codes.append('K-1')
+    if 'RECOND' in code_str:
+        codes.append('RECOND')
     if 'K3/4' in code_str:
         codes.append('K3/4')
     if 'K20' in code_str:
