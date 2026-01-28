@@ -281,9 +281,10 @@ def parse_my_billing(file_bytes, sheet_name=0):
                 if match:
                     current_date = int(match.group(1))
         
-        dossier = row.iloc[2] if len(row) > 2 and pd.notna(row.iloc[2]) else None
-        nom = row.iloc[3] if len(row) > 3 and pd.notna(row.iloc[3]) else None
-        codes_str = row.iloc[4] if len(row) > 4 and pd.notna(row.iloc[4]) else None
+        # Colonnes: A=Date, B=Dossier, C=Nom, D=Code
+        dossier = row.iloc[1] if len(row) > 1 and pd.notna(row.iloc[1]) else None
+        nom = row.iloc[2] if len(row) > 2 and pd.notna(row.iloc[2]) else None
+        codes_str = row.iloc[3] if len(row) > 3 and pd.notna(row.iloc[3]) else None
         
         if dossier and nom and codes_str and current_date:
             codes = parse_billing_code(str(codes_str))
@@ -478,7 +479,7 @@ def main():
             "Glissez votre fichier Excel ici",
             type=['xlsx', 'xls'],
             key="billing",
-            help="Votre fichier de facturation personnelle"
+            help="Créer une copie datée de votre fichier de facturation personnelle en local sur votre ordinateur"
         )
         
         billing_bytes = None
