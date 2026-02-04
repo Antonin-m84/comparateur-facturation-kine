@@ -446,11 +446,11 @@ def main():
     with st.sidebar:
         st.header("📖 Mode d'emploi")
         st.markdown("""
-        **1.** Uploadez votre fichier de facturation
+        **1.** Créer une copie locale de l'excel et l'uploader
+                            
+        **2.** Sélectionnez les feuilles Excel (mois)
         
-        **2.** Uploadez le rapport de l'hôpital
-        
-        **3.** Sélectionnez les feuilles Excel (mois)
+        **3.** Uploadez le WebRapport de l'hôpital (version Excel)
         
         **4.** Cliquez sur **Lancer la comparaison**
         
